@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Clicker</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Кликер на Vue через script</h1>
+
+    <p>Очки: {{ count }}</p>
+
+    <button @click="increase">
+      Кликнуть
+    </button>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const count = ref(0)
+
+        function increase() {
+          count.value += 1
+        }
+
+        return {
+          count,
+          increase
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
